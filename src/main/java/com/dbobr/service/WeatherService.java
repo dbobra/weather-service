@@ -1,5 +1,6 @@
 package com.dbobr.service;
 
+import com.dbobr.domain.WeatherData;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +23,9 @@ public class WeatherService {
     @Autowired
     private RestTemplate restTemplate;
 
-    public String getWeatherByCity(String cityName) {
-        String result = restTemplate.getForObject(baseUrl + cityName + APP_ID + apiKey, String.class);
-        return result;
+    public WeatherData getWeatherByCity(String cityName) {
+        WeatherData weatherData = restTemplate.getForObject(baseUrl + cityName + APP_ID + apiKey, WeatherData.class);
+        return weatherData;
 
     }
 }

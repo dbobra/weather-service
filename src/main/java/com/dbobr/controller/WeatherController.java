@@ -1,6 +1,7 @@
 package com.dbobr.controller;
 
 import com.dbobr.WeatherApp;
+import com.dbobr.domain.WeatherData;
 import com.dbobr.service.WeatherService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,7 +24,7 @@ public class WeatherController {
     }
 
     @GetMapping("/city")
-    public String getWeatherByCity(@RequestParam("name") String cityName){
+    public WeatherData getWeatherByCity(@RequestParam("name") String cityName){
         log.info("Requested city {}", cityName);
         return weatherService.getWeatherByCity(cityName);
     }
