@@ -1,6 +1,7 @@
 package com.dbobr.controller;
 
 import com.dbobr.service.WeatherService;
+import org.jasypt.util.text.BasicTextEncryptor;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
