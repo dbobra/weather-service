@@ -25,8 +25,7 @@ public class WeatherController {
     @GetMapping("/city")
     public String getWeatherByCity(@RequestParam("name") String cityName){
         log.info("Requested city {}", cityName);
-        weatherService.getWeatherByCity(cityName);
-        return cityName;
+        return weatherService.getWeatherByCity(cityName);
     }
 
 }
