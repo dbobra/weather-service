@@ -1,6 +1,8 @@
 package com.dbobr.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.time.Instant;
 import java.util.List;
 
@@ -12,6 +14,25 @@ public class WeatherData {
     private Coordinate coord;
     private List<Weather> weather;
     private Wind wind;
+    private Rain rain;
+    @JsonProperty("sys")
+    private CountryInfo countryInfo;
+
+    public Rain getRain() {
+        return rain;
+    }
+
+    public void setRain(Rain rain) {
+        this.rain = rain;
+    }
+
+    public CountryInfo getCountryInfo() {
+        return countryInfo;
+    }
+
+    public void setCountryInfo(CountryInfo countryInfo) {
+        this.countryInfo = countryInfo;
+    }
 
     public Coordinate getCoord() {
         return coord;
