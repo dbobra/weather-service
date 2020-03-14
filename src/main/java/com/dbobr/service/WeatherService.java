@@ -1,10 +1,10 @@
 package com.dbobr.service;
 
+import com.dbobr.config.AppProperties;
 import com.dbobr.domain.WeatherData;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -14,17 +14,15 @@ public class WeatherService {
     public static final String APP_ID = "&APPID=";
     private Logger log = LoggerFactory.getLogger(WeatherService.class);
 
-    @Value("${api.base.url}")
-    private String baseUrl;
-
-    @Value("${api.key}")
-    private String apiKey;
-
     @Autowired
     private RestTemplate restTemplate;
 
+    @Autowired
+    private AppProperties appProperties;
+
+
     public WeatherData getWeatherByCity(String cityName) {
-        WeatherData weatherData = restTemplate.getForObject(baseUrl + cityName + APP_ID + apiKey, WeatherData.class);
+        WeatherData weatherData = restTemplate.getForObject(appProperties.getBaseUrl() + cityName + APP_ID + appProperties.getApiKey(), WeatherData.class);
         return weatherData;
 
     }
